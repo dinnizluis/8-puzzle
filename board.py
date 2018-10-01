@@ -19,6 +19,10 @@ class Board:
     def getStatus(self):
         return self.status
 
+    def copy(self):
+        return self
+
+
     #Read a board configuration from a file object (the content of the object is expected to be in a specific format),
     #set the board configuration to it,
     #and @returns the configuration
@@ -48,8 +52,19 @@ class Board:
     #Checks if the current configuration is final Statement
     #and @returns True if it is and False if it isn't
     def isFinal(self):
-        for i in range(1, len(self.conf)):
+        for i in range(1, 9):
             if self.conf[i-1] > self.conf[i]:
                 return False
         self.status = 'final'
+        return True
+
+    #Checks if the given board has the same consiguration as the object
+    #and @returns a boolean value
+    def sameBoard(self, board):
+        if len(board.getConf()) != len(self.conf):
+            return False
+        else:
+            for i in range(len(self.conf)):
+                if board.getConf()[i] != self.getConf()[i]:
+                    return False
         return True
