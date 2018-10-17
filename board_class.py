@@ -1,5 +1,5 @@
 from anytree import *
-import time, timeit
+import time, timeit, sys
 
 class Board(NodeMixin): #Add the node feature
 
@@ -348,10 +348,19 @@ def run(a, b):
 import tracemalloc
 tracemalloc.start()
 
-run(1,9)
+#run(1,9)
+param = sys.argv[1:]
+in1 = []
+for i in range(len(param[0])):
+	if param[0][i] >= '0' and param[0][i] <= '8':
+		in1.append(int(param[0][i]))
+board  = Board(in1)
+c, n = board.findMinCost() 
+sys.stdout.write("custo_total: "+str(c))
+sys.exit(0)
 
 snapshot = tracemalloc.take_snapshot()
 top_stats = snapshot.statistics('lineno')
-print('[Top 10]')
-for stat in top_stats[:10]:
-	print(stat)
+#print('[Top 10]')
+#for stat in top_stats[:10]:
+#	print(stat)

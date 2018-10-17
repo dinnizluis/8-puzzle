@@ -1,2 +1,2 @@
 #!/bin/bash
-python board_class.py
+python -m py_compile board_class.py
