@@ -1,0 +1,54 @@
+Luiss-MacBook-Pro:tp_grafos dinnizluis$ python -m memory_profiler board_class.py 
+------------------------------------------------------------------------------------
+In1
+custo_total: 3, nós examinados: 6, tempo: 0.0038390159606933594 segundos
+Filename: board_class.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+   315   49.324 MiB   49.324 MiB   @profile
+   316                             def run(a, b):
+   317                             	#file = open("results.txt", "w")
+   318                             	#file.close()
+   319   49.355 MiB    0.000 MiB   	for i in range(a, b+1):
+   320   49.328 MiB    0.004 MiB   		board = Board(readFromFile('testes/in'+str(i)))
+   321   49.328 MiB    0.000 MiB   		begin = time.time()
+   322   49.328 MiB    0.000 MiB   		rslt = board.findMinCost()
+   323   49.328 MiB    0.000 MiB   		end = time.time()
+   324   49.328 MiB    0.000 MiB   		tempo = end - begin
+   325   49.328 MiB    0.000 MiB   		file0 = open("results.txt", "a")
+   326   49.328 MiB    0.000 MiB   		file1 = open("out"+str(i), "w")
+   327   49.348 MiB    0.020 MiB   		file0.write("custo_total: {0}, nós examinados: {1}, tempo: {2} segundos".format(rslt[0], rslt[1], str(tempo)))
+   328   49.348 MiB    0.000 MiB   		file0.write("\n")
+   329   49.348 MiB    0.000 MiB   		file1.write("custo_total: {0}".format(rslt[0]))
+   330   49.348 MiB    0.000 MiB   		file0.close()
+   331   49.352 MiB    0.004 MiB   		file1.close()
+   332   49.355 MiB    0.004 MiB   		print("------------------------------------------------------------------------------------")
+   333   49.355 MiB    0.000 MiB   		print("In"+str(i))
+   334   49.355 MiB    0.000 MiB   		print("custo_total: {0}, nós examinados: {1}, tempo: {2} segundos".format(rslt[0], rslt[1], str(tempo)))
+
+
+Luiss-MacBook-Pro:tp_grafos dinnizluis$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
